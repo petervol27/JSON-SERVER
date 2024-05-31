@@ -42,7 +42,7 @@
     </div>
     <script>
       async function getDestinations() {
-        const response = await axios.get('http://localhost:3000/destinations');
+        const response = await axios.get('https://json-server-wprh.onrender.com/destinations');
         destinations = response.data;
         myDestinations.innerHTML = destinations
           .map(
@@ -66,7 +66,7 @@
       getDestinations();
 
       let deleteDestination = async function (id) {
-        await axios.delete(`http://localhost:3000/destinations/${id}`);
+        await axios.delete(`https://json-server-wprh.onrender.com/destinations/${id}`);
       };
       let editDestination = async function (id) {
         const newData = {};
@@ -84,7 +84,7 @@
           newData.image = destImg.value;
         }
 
-        await axios.patch(`http://localhost:3000/destinations/${id}`, newData);
+        await axios.patch(`https://json-server-wprh.onrender.com/destinations/${id}`, newData);
       };
 
       let addDestination = async function () {
@@ -93,7 +93,7 @@
         newData.description = destDesc.value;
         newData.score = destScore.value;
         newData.image = destImg.value;
-        await axios.post('http://localhost:3000/destinations', newData);
+        await axios.post('https://json-server-wprh.onrender.com/destinations', newData);
       };
     </script>
   </body>
